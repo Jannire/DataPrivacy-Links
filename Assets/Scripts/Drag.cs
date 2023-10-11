@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Drag : MonoBehaviour
 {
-
     private bool dragging = false;
     private Vector3 offset;
+    public GameObject card;
 
     void Update()
     {
@@ -25,5 +25,15 @@ public class Drag : MonoBehaviour
     void OnMouseUp()
     {
         dragging = false;
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        Debug.Log(other.transform.name);
+        if(Input.GetMouseButtonUp(0))
+        {
+            Debug.Log("Puntaje arriba");
+            Destroy(card);
+        }
     }
 }

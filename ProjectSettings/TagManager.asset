@@ -14,7 +14,7 @@ TagManager:
   - Celular
   - Desktop
   - Card
-  - 
+  - Background
   - 
   - 
   - 
@@ -41,12 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Celular
-    uniqueID: 1958634937
+  - name: Background
+    uniqueID: 1248957049
     locked: 0
   - name: Desktop
     uniqueID: 3250570999
     locked: 0
   - name: Card
     uniqueID: 2153751635
+    locked: 0
+  - name: Celular
+    uniqueID: 1958634937
     locked: 0
