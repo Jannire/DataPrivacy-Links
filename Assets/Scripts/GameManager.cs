@@ -94,7 +94,6 @@ public class GameManager : MonoBehaviour
     public void RevisarCard(GameObject GO)
     {
         //Recibe card y depnde de la parte y nivel, revisa cosa distintas
-        //Debug.Log("GO: " + GO);
         cardRev = GO;
         switch (nivel)
         {
@@ -124,8 +123,7 @@ public class GameManager : MonoBehaviour
     {
         switch (parte)
         {
-            case 1:
-                //Mayores y menores de edad
+            case 1: //Mayores y menores de edad
                 datosRev.Add(cardRev.transform.Find("Profile-Info").transform.Find("Edad").GetComponent<TextMeshPro>().text);
                 Debug.Log(datosRev[0]);
                 //Grupo 1 --> menores
@@ -138,14 +136,11 @@ public class GameManager : MonoBehaviour
                 {
                     grupoRev = "Grupo1";
                 }
-                //Debug.Log("-----> " + datosRev[0].Substring(6));
                 datosRev.Clear();
                 break;
             default:
                 break;
         }
-        //Debug.Log("GRUPO REV: " + grupoRev);
-
     }
 
 

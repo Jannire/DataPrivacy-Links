@@ -30,13 +30,12 @@ public class Drag : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        //Debug.Log(other.transform.name);
         //Grupo 1 --> menores
         //Grupo 2 --> mayores
         if(Input.GetMouseButtonUp(0))
         {
-            //Debug.Log("Puntaje arriba");
             GameManager.Instance.changePuntaje(other.transform.name);
+            /*Antes de eliminar el card, agregar animación de que se va*/
             Destroy(card);
         }
     }
