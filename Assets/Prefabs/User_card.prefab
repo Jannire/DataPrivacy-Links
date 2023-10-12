@@ -647,6 +647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 7919138074898335403}
+  gameManager: {fileID: 3164457275732721926, guid: fb2d30465bddb2b49a20f0946497a722, type: 3}
 --- !u!212 &5355432119062017436
 SpriteRenderer:
   m_ObjectHideFlags: 0

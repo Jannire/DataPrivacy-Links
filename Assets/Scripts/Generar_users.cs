@@ -54,6 +54,11 @@ public class Generar_users : MonoBehaviour
 
         hijo_temp = user_card.transform.Find("Profile-Info").transform.Find("Genero");
         hijo_temp.GetComponent<TextMeshPro>().text = "Genero: " + gender;
+
+        //Mandar card a GameManager para subir o restar puntaje
+        //Debug.Log("usercard: " + user_card);
+        GameManager.Instance.RevisarCard(user_card);
+
     }
 
 }

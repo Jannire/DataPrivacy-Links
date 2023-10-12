@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Drag : MonoBehaviour
@@ -29,10 +30,13 @@ public class Drag : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log(other.transform.name);
+        //Debug.Log(other.transform.name);
+        //Grupo 1 --> menores
+        //Grupo 2 --> mayores
         if(Input.GetMouseButtonUp(0))
         {
-            Debug.Log("Puntaje arriba");
+            //Debug.Log("Puntaje arriba");
+            GameManager.Instance.changePuntaje(other.transform.name);
             Destroy(card);
         }
     }
