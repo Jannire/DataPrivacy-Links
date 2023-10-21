@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,6 +11,9 @@ public class Generar_users : MonoBehaviour
     public GameObject user_card;
     public Transform hijo_temp;
     private List<int> tempList = new List<int>(); //GameManager.Instance.cantCards[GameManager.Instance.nivel]
+    private List<string> busquedas = new List<string>();
+    private int rand;
+    private string temp = "";
     #region randomizar
     public int edad;
     public string nombre;
@@ -19,13 +23,13 @@ public class Generar_users : MonoBehaviour
     public string[] generos = { "F", "M" };
     #endregion
 
-
     void Update()
     {
         tempList = (List<int>)GameManager.Instance.cantCards[GameManager.Instance.nivel];
-        if (GameManager.Instance.cCards >= tempList[GameManager.Instance.parte - 1])
+        if (GameManager.Instance.cCards-1 >= tempList[GameManager.Instance.parte - 1])
         {
             GameManager.Instance.setLevelAndPart();
+            Debug.Log(GameManager.Instance.parte);
         }
         else if (!GameObject.Find("User_card(Clone)"))
         {
@@ -35,7 +39,7 @@ public class Generar_users : MonoBehaviour
                 switch (GameManager.Instance.nivel)
                 {
                     case 1:
-                        Debug.Log("Card1_1");
+                        //Debug.Log("Card1_1");
                         break;
                     case 2:
                         Card2_1();
@@ -60,7 +64,7 @@ public class Generar_users : MonoBehaviour
                         break;
                 }
             }
-            else
+            else if (GameManager.Instance.parte == 3)
             {
                 switch (GameManager.Instance.nivel)
                 {
@@ -75,12 +79,14 @@ public class Generar_users : MonoBehaviour
                         break;
                 }
             }
+            //Mandar card a GameManager para subir o restar puntaje
+            //Debug.Log("usercard: " + user_card);
+            GameManager.Instance.RevisarCard(user_card);
         }
     }
 
     void Generar_randoms()
     {
-        //Random.Range(15, 60);
         gender = generos[Random.Range(0, 2)];
         if (gender == "F")
         {
@@ -90,7 +96,7 @@ public class Generar_users : MonoBehaviour
         {
             nombre = nombresM[Random.Range(0, nombresM.Length)];
         }
-        edad = Random.Range(12, 65);
+        edad = Random.Range(13, 40);
     }
 
     void Generar_card()
@@ -105,18 +111,88 @@ public class Generar_users : MonoBehaviour
 
         hijo_temp = user_card.transform.Find("Profile-Info").transform.Find("Genero");
         hijo_temp.GetComponent<TextMeshPro>().text = "Genero: " + gender;
-
-        //Mandar card a GameManager para subir o restar puntaje
-        //Debug.Log("usercard: " + user_card);
-        GameManager.Instance.RevisarCard(user_card);
-
     }
 
     void Card1_2()
-    { }
+    {
+        //3 opciones || En pareja, soltero y buscando pareja, soltero y no buscando pareja
+        /*
+            •	Estado – información del perfil
+            •	Búsquedas (Se toma en cuenta que se acerca san Valentín)
+                o	Mejores chocolates para regalar
+                o	Precio flores
+                o	*Nada pertinente*
+                o	¿Cómo saber si le gusto a alguien?
+        */
+        //Utilizar la misma lista 0-3 Parejas, 4-6 buscando, 7-10 no buscando
+        busquedas.AddRange(new string[10] { "Mejores chocolates para regalar", "Precios de flores", "Lugares para salir", "Regalos para aniversario",
+                                            "¿Como declararme?", "Tips para saber si le gusto a alguien", "Apps para citas", 
+                                            "Celulares 2023", "Outfits verano", "Rutina de ejercicio"});
+        
+        rand = Random.Range(0, 3);
+        hijo_temp = user_card.transform.Find("Busquedas").transform.Find("Busquedas-items");
+        switch (rand)
+        {
+            case 0:
+                //pareja
+                temp = busquedas[Random.Range(0, 4)];
+                break;
+            case 1:
+                //buscando
+                temp = busquedas[Random.Range(4, 7)];
+                break;
+            case 2:
+                //no buscando
+                temp = busquedas[Random.Range(7, 11)];
+                break;
+            default:
+                temp = "Error";
+                break;
+        }
+        hijo_temp.GetComponent<TextMeshPro>().text = "- " + temp;
+
+    }
 
     void Card1_3()
-    { }
+    { 
+        //4 opciones || (Trabajando, estudiando), (Trabajando, no estudiando), (No trabajando, estudiando), (No trabajando, no estudiando)
+        /*
+            •	Estado – información del perfil
+            •	Búsquedas
+                o	Outfits para universidad
+                o	Sueldo mínimo practicante
+                o	Entrevistas recién graduados
+                o	Balance trabajo y estudio
+                o	¿Como encontrar trabajo sin estudios?
+
+        */
+        //0-3 Trabajando, 4-6 estudiando, 7-9 Ambos
+        busquedas.AddRange(new string[10] { "Entrevistas recien graduados", "¿Como encontrar trabajo sin estudios?", "Tips para pedir aumento", "Snacks para oficina",
+                                            "Rutina de estudio", "Outfits para universidad", "Snacks para clases", 
+                                            "Balance estudio y trabajo", "Sueldo minimo practicantes", "Rutina de trabajo y estudio"});
+        
+        rand = Random.Range(0, 3);
+        hijo_temp = user_card.transform.Find("Busquedas").transform.Find("Busquedas-items");
+        switch (rand)
+        {
+            case 0:
+                //pareja
+                temp = busquedas[Random.Range(0, 4)];
+                break;
+            case 1:
+                //buscando
+                temp = busquedas[Random.Range(4, 7)];
+                break;
+            case 2:
+                //no buscando
+                temp = busquedas[Random.Range(7, 10)];
+                break;
+            default:
+                temp = "Error";
+                break;
+        }
+        hijo_temp.GetComponent<TextMeshPro>().text = "- " + temp;
+    }
 
     void Card2_1()
     { }
