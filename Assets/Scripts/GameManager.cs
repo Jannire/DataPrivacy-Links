@@ -11,11 +11,14 @@ public class GameManager : MonoBehaviour
     public int cont = -1, cCards = 0;
     public int nivel = 0, parte, totPartes;
     public GameObject cardRev;
-    public GameObject temp;
+    private GameObject temp;
     public string grupoRev;
     public List<string> datosRev = new List<string>();
     public List<string> buscar = new List<string>();
-
+    [SerializeField] private GameObject grupo1;
+    [SerializeField] private GameObject grupo2;
+    [SerializeField] private GameObject grupo3;
+    [SerializeField] private GameObject grupo4;
 
     public static GameManager Instance { get; private set; }
 
@@ -85,12 +88,15 @@ public class GameManager : MonoBehaviour
         {
             case 1:
                 Debug.Log("Parte 1.1");
+                setGrupos(2);
                 break;
             case 2:
                 Debug.Log("Parte 1.2");
+                setGrupos(3);
                 break;
             case 3:
                 Debug.Log("Parte 1.3");
+                setGrupos(4);
                 break;
             case 4:
                 Debug.Log("Parte 2.1");
@@ -121,42 +127,67 @@ public class GameManager : MonoBehaviour
         switch (numG)
         {
             case 0:
-                temp = GameObject.Find("Grupo1");
-                temp.SetActive(false);
-                temp = GameObject.Find("Grupo2");
-                temp.SetActive(false);
-                temp = GameObject.Find("Grupo3");
-                temp.SetActive(false);
+                grupo1.SetActive(false);
+                grupo2.SetActive(false);
+                grupo3.SetActive(false);
+                grupo4.SetActive(false);
                 break;
             case 2:
-                temp = GameObject.Find("Grupo1");
+                temp = grupo1;
                 temp.SetActive(true);
-                temp.transform.position = new Vector3(-0.25344f, -0.04f, 0f); //Posición
+                temp.transform.localPosition = new Vector3(-0.25344f, -0.04f, 0f); //Posición
                 temp.transform.localScale = new Vector3(-0.485769f, 0.5493945f, 0f); //Scale
 
-                temp = GameObject.Find("Grupo2");
+                temp = grupo2;
                 temp.SetActive(true);
-                temp.transform.position = new Vector3(0.25f, -0.04f, 0f);
+                temp.transform.localPosition = new Vector3(0.25f, -0.04f, 0f);
                 temp.transform.localScale = new Vector3(-0.485769f, 0.5493945f, 0f); //Scale
-                
-                temp = GameObject.Find("Grupo3");
+
+                temp = grupo3;
+                temp.SetActive(false);
+
+                temp = grupo4;
                 temp.SetActive(false);
                 break;
             case 3:
-                temp = GameObject.Find("Grupo1");
+                temp = grupo1;
                 temp.SetActive(true);
-                temp.transform.position = new Vector3(-0.33648f, -0.04f, 0f); //Posición
+                temp.transform.localPosition = new Vector3(-0.33648f, -0.04f, 0f); //Posición
                 temp.transform.localScale = new Vector3(0.3196882f, 0.5493945f, 0f); //Scale
 
-                temp = GameObject.Find("Grupo2");
+                temp = grupo2;
                 temp.SetActive(true);
-                temp.transform.position = new Vector3(0.01f, -0.04f, 0f);
+                temp.transform.localPosition = new Vector3(0.01f, -0.04f, 0f);
                 temp.transform.localScale = new Vector3(0.3196882f, 0.5493945f, 0f); //Scale
-                
-                temp = GameObject.Find("Grupo3");
+
+                temp = grupo3;
                 temp.SetActive(true);
-                temp.transform.position = new Vector3(0.355f, -0.04f, 0f);
+                temp.transform.localPosition = new Vector3(0.355f, -0.04f, 0f);
                 temp.transform.localScale = new Vector3(0.3196882f, 0.5493945f, 0f); //Scale
+
+                temp = grupo4;
+                temp.SetActive(false);
+                break;
+            case 4:
+                temp = grupo1;
+                temp.SetActive(true);
+                temp.transform.localPosition = new Vector3(-0.39677f, -0.04f, 0f); //Posición
+                temp.transform.localScale = new Vector3(0.2258989f, 0.5493945f, 0f); //Scale
+
+                temp = grupo2;
+                temp.SetActive(true);
+                temp.transform.localPosition = new Vector3(-0.137f, -0.04f, 0f);
+                temp.transform.localScale = new Vector3(0.2258989f, 0.5493945f, 0f); //Scale
+
+                temp = grupo3;
+                temp.SetActive(true);
+                temp.transform.localPosition = new Vector3(0.129f, -0.04f, 0f);
+                temp.transform.localScale = new Vector3(0.2258989f, 0.5493945f, 0f); //Scale
+
+                temp = grupo4;
+                temp.SetActive(true);
+                temp.transform.localPosition = new Vector3(0.387f, -0.04f, 0f);
+                temp.transform.localScale = new Vector3(0.2258989f, 0.5493945f, 0f); //Scale
                 break;
             default:
                 Debug.Log("Error en setGrupos");
@@ -166,16 +197,22 @@ public class GameManager : MonoBehaviour
 
     public void changePuntaje(string grupo)
     {
-        //Debug.Log("CHANGE PUNTAJE - GM");
-        //Debug.Log(grupo + " -- " + grupoRev);
+        Debug.Log(grupo + " -- " + grupoRev);
         if (grupoRev == grupo)
         {
             pBien++;
+        }
+        else if (grupoRev == "")
+        {
+            ;
         }
         else
         {
             pMal++;
         }
+        grupoRev = "";
+        Debug.Log("CHANGE PUNTAJE - GM" + "-Mal: " + pMal + " -Bien" + pBien);
+        //Debug.Log("--> " + grupoRev);
     }
 
     public void RevisarCard(GameObject GO)
@@ -206,6 +243,8 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Algo paso mal.... - RevCard: nivel ->" + nivel);
                 break;
         }
+        datosRev.Clear();
+        buscar.Clear();
     }
 
     void RevisarNivel1()
@@ -230,15 +269,8 @@ public class GameManager : MonoBehaviour
                                             "Celulares 2023", "Outfits verano", "Rutina de ejercicio"});
                 datosRev.Add(cardRev.transform.Find("Busquedas").transform.Find("Busquedas-items").GetComponent<TextMeshPro>().text);
 
-                for (int i = 0; i < buscar.Count; i++) ///// ------------- TO-DO: habilitar para más busquedas
-                {
-                    if (buscar[i] == datosRev[0].Substring(2))
-                    {
-                        cont = i;
-                        break;
-                    }
-                }
-                if (cont == 0 && cont < 4)
+                cont = buscar.FindIndex(a => a.Contains(datosRev[0].Substring(2)));
+                if (cont >= 0 && cont < 4)
                 {
                     grupoRev = "Grupo1";
                 }
@@ -251,20 +283,17 @@ public class GameManager : MonoBehaviour
                     grupoRev = "Grupo3";
                 }
                 datosRev.Clear();
+                buscar.Clear();
                 break;
             case 3:
                 buscar.AddRange(new string[10] { "Entrevistas recien graduados", "¿Como encontrar trabajo sin estudios?", "Tips para pedir aumento", "Snacks para oficina",
                                             "Rutina de estudio", "Outfits para universidad", "Snacks para clases",
                                             "Balance estudio y trabajo", "Sueldo minimo practicantes", "Rutina de trabajo y estudio"});
                 datosRev.Add(cardRev.transform.Find("Busquedas").transform.Find("Busquedas-items").GetComponent<TextMeshPro>().text);
-                for (int i = 0; i < buscar.Count; i++) ///// ------------- TO-DO: habilitar para más busquedas
-                {
-                    if (buscar[i] == datosRev[0].Substring(2))
-                    {
-                        cont = i;
-                        break;
-                    }
-                }
+
+                cont = buscar.FindIndex(a => a.Contains(datosRev[0].Substring(2)));
+
+                //0-3 Trabajando, 4-6 estudiando, 7-9 Ambos, 10-12 Ninguno
                 if (cont == 0 && cont < 4)
                 {
                     grupoRev = "Grupo1";
@@ -273,11 +302,16 @@ public class GameManager : MonoBehaviour
                 {
                     grupoRev = "Grupo2";
                 }
+                else if (cont < 10)
+                {
+                    grupoRev = "Grupo3";
+                }
                 else
                 {
-                    grupoRev = "Grupo1_1";
+                    grupoRev = "Grupo4";
                 }
                 datosRev.Clear();
+                buscar.Clear();
                 break;
             default:
                 break;

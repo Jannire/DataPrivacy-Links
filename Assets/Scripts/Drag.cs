@@ -59,8 +59,9 @@ public class Drag : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (Input.GetMouseButtonUp(0) && !isBig)
-        {
+        if (Input.GetMouseButtonUp(0) && !isBig && other.transform.name.Contains("Grupo")) //Grupo es con mayuscula
+        {    
+            Debug.Log("Collider: " + other.transform.name);
             GameManager.Instance.changePuntaje(other.transform.name);
             /*Antes de eliminar el card, agregar animación de que se va*/
             Destroy(card);

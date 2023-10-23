@@ -9,9 +9,9 @@ public class Generar_users : MonoBehaviour
 {
     public GameObject card;
     public GameObject user_card;
-    public Transform hijo_temp;
+    private Transform hijo_temp;
     private List<int> tempList = new List<int>(); //GameManager.Instance.cantCards[GameManager.Instance.nivel]
-    private List<string> busquedas = new List<string>();
+    [SerializeField] private List<string> busquedas = new List<string>();
     private int rand;
     private string temp = "";
     #region randomizar
@@ -25,13 +25,17 @@ public class Generar_users : MonoBehaviour
 
     void Update()
     {
-        tempList = (List<int>)GameManager.Instance.cantCards[GameManager.Instance.nivel];
-        if (GameManager.Instance.cCards-1 >= tempList[GameManager.Instance.parte - 1])
-        {
+        Debug.Log(tempList[GameManager.Instance.parte - 1]);
+        if (GameManager.Instance.cCards-1 >= tempList[GameManager.Instance.parte - 1] && GameObject.Find("User_card(Clone)"))
+        {   
+            Debug.Log("cCards: " + (GameManager.Instance.cCards-1) + " - Total: " + tempList[GameManager.Instance.parte - 1]);
             GameManager.Instance.setLevelAndPart();
-            Debug.Log(GameManager.Instance.parte);
+            //Debug.Log(GameManager.Instance.parte);
         }
-        else if (!GameObject.Find("User_card(Clone)"))
+
+        tempList = (List<int>)GameManager.Instance.cantCards[GameManager.Instance.nivel];
+        
+        if (!GameObject.Find("User_card(Clone)"))
         {
             Generar_card();
             if (GameManager.Instance.parte == 1)
@@ -79,6 +83,7 @@ public class Generar_users : MonoBehaviour
                         break;
                 }
             }
+            busquedas.Clear(); 
             //Mandar card a GameManager para subir o restar puntaje
             //Debug.Log("usercard: " + user_card);
             GameManager.Instance.RevisarCard(user_card);
@@ -166,10 +171,11 @@ public class Generar_users : MonoBehaviour
                 o	¿Como encontrar trabajo sin estudios?
 
         */
-        //0-3 Trabajando, 4-6 estudiando, 7-9 Ambos
-        busquedas.AddRange(new string[10] { "Entrevistas recien graduados", "¿Como encontrar trabajo sin estudios?", "Tips para pedir aumento", "Snacks para oficina",
+        //0-3 Trabajando, 4-6 estudiando, 7-9 Ambos, 10-12 Ninguno
+        busquedas.AddRange(new string[13] { "Entrevistas recien graduados", "¿Como encontrar trabajo sin estudios?", "Tips para pedir aumento", "Snacks para oficina",
                                             "Rutina de estudio", "Outfits para universidad", "Snacks para clases", 
-                                            "Balance estudio y trabajo", "Sueldo minimo practicantes", "Rutina de trabajo y estudio"});
+                                            "Balance estudio y trabajo", "Sueldo minimo practicantes", "Rutina de trabajo y estudio",
+                                            "Celulares 2023", "Outfits verano", "Rutina de ejercicio"});
         
         rand = Random.Range(0, 3);
         hijo_temp = user_card.transform.Find("Busquedas").transform.Find("Busquedas-items");
