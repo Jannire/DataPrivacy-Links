@@ -6,15 +6,16 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int pBien = 0, pMal = 0;
-    public Hashtable cantCards = new Hashtable();
-    List<int> ccCards = new List<int>();
     public int cont = -1, cCards = 0;
-    public int nivel = 0, parte, totPartes;
+    public int nivel = 0, parte = 0, totPartes;
+    public string grupoRev;
     public GameObject cardRev;
     private GameObject temp;
-    public string grupoRev;
+    List<int> ccCards = new List<int>();
+    public Hashtable cantCards = new Hashtable();
     public List<string> datosRev = new List<string>();
     public List<string> buscar = new List<string>();
+
     [SerializeField] private GameObject grupo1;
     [SerializeField] private GameObject grupo2;
     [SerializeField] private GameObject grupo3;

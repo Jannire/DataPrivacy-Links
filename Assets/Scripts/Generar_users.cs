@@ -25,7 +25,8 @@ public class Generar_users : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(tempList[GameManager.Instance.parte - 1]);
+        //Debug.Log("Parte: " + GameManager.Instance.parte + " - Cards: " + tempList[GameManager.Instance.parte]);
+        tempList = (List<int>)GameManager.Instance.cantCards[GameManager.Instance.nivel];
         if (GameManager.Instance.cCards-1 >= tempList[GameManager.Instance.parte - 1] && GameObject.Find("User_card(Clone)"))
         {   
             Debug.Log("cCards: " + (GameManager.Instance.cCards-1) + " - Total: " + tempList[GameManager.Instance.parte - 1]);
@@ -33,7 +34,6 @@ public class Generar_users : MonoBehaviour
             //Debug.Log(GameManager.Instance.parte);
         }
 
-        tempList = (List<int>)GameManager.Instance.cantCards[GameManager.Instance.nivel];
         
         if (!GameObject.Find("User_card(Clone)"))
         {
