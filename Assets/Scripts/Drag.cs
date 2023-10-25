@@ -61,7 +61,7 @@ public class Drag : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0) && !isBig && other.transform.name.Contains("Grupo")) //Grupo es con mayuscula
         {    
-            Debug.Log("Collider: " + other.transform.name);
+            //Debug.Log("Collider: " + other.transform.name);
             GameManager.Instance.changePuntaje(other.transform.name);
             /*Antes de eliminar el card, agregar animación de que se va*/
             Destroy(card);
@@ -69,6 +69,10 @@ public class Drag : MonoBehaviour
         else if(isBig)
         {
             Debug.Log("Cierralo antes!");
+        }
+        else if(!isBig)
+        {
+            //Debug.Log("Culpable: " + other.transform.name);
         }
     }
 }

@@ -27,17 +27,22 @@ public class Generar_users : MonoBehaviour
     {
         //Debug.Log("Parte: " + GameManager.Instance.parte + " - Cards: " + tempList[GameManager.Instance.parte]);
         tempList = (List<int>)GameManager.Instance.cantCards[GameManager.Instance.nivel];
-        if (GameManager.Instance.cCards-1 >= tempList[GameManager.Instance.parte - 1] && GameObject.Find("User_card(Clone)"))
-        {   
-            Debug.Log("cCards: " + (GameManager.Instance.cCards-1) + " - Total: " + tempList[GameManager.Instance.parte - 1]);
-            GameManager.Instance.setLevelAndPart();
-            //Debug.Log(GameManager.Instance.parte);
-        }
-
+        Debug.Log("cCards: " + GameManager.Instance.cCards);
+        Debug.Log("Templist: " + tempList[GameManager.Instance.parte - 1]);
         
+        if (GameManager.Instance.cCards >= tempList[GameManager.Instance.parte - 1])
+        {   
+            Debug.Log("cCards: " + GameManager.Instance.cCards + " - Total: " + tempList[GameManager.Instance.parte - 1]);
+            GameManager.Instance.setLevelAndPart();
+            Debug.Log("Nivel - Instance parte: " + GameManager.Instance.parte);
+            Debug.Log("Boolean " + GameObject.Find("User_card(Clone)"));
+        }
+        
+        Debug.Log("Boolea antes del if " + GameObject.Find("User_card(Clone)"));
         if (!GameObject.Find("User_card(Clone)"))
         {
             Generar_card();
+            Debug.Log("Mi problema: " + GameManager.Instance.parte);
             if (GameManager.Instance.parte == 1)
             {
                 switch (GameManager.Instance.nivel)
@@ -55,6 +60,7 @@ public class Generar_users : MonoBehaviour
             }
             else if (GameManager.Instance.parte == 2)
             {
+                Debug.Log("PARTE 2!!!!!");
                 switch (GameManager.Instance.nivel)
                 {
                     case 1:

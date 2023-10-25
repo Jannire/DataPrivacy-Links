@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     public void setLevelAndPart()
     {
-        Debug.Log("Bien: " + pBien + "\nMal: " + pMal);
+        //Debug.Log("Bien: " + pBien + "\nMal: " + pMal);
         pBien = 0;
         pMal = 0;
         if (parte == 3)
@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            //Debug.Log("Hello...");
             setParte();
         }
     }
@@ -198,7 +199,7 @@ public class GameManager : MonoBehaviour
 
     public void changePuntaje(string grupo)
     {
-        Debug.Log(grupo + " -- " + grupoRev);
+        //Debug.Log(grupo + " -- " + grupoRev);
         if (grupoRev == grupo)
         {
             pBien++;
@@ -212,7 +213,7 @@ public class GameManager : MonoBehaviour
             pMal++;
         }
         grupoRev = "";
-        Debug.Log("CHANGE PUNTAJE - GM" + "-Mal: " + pMal + " -Bien" + pBien);
+        //Debug.Log("CHANGE PUNTAJE - GM" + "-Mal: " + pMal + " -Bien" + pBien);
         //Debug.Log("--> " + grupoRev);
     }
 
