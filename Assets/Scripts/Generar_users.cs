@@ -25,74 +25,71 @@ public class Generar_users : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log("Parte: " + GameManager.Instance.parte + " - Cards: " + tempList[GameManager.Instance.parte]);
         tempList = (List<int>)GameManager.Instance.cantCards[GameManager.Instance.nivel];
-        Debug.Log("cCards: " + GameManager.Instance.cCards);
-        Debug.Log("Templist: " + tempList[GameManager.Instance.parte - 1]);
-        
-        if (GameManager.Instance.cCards >= tempList[GameManager.Instance.parte - 1])
-        {   
-            Debug.Log("cCards: " + GameManager.Instance.cCards + " - Total: " + tempList[GameManager.Instance.parte - 1]);
+        //Debug.Log("cCards: " + GameManager.Instance.cCards);
+        //Debug.Log("Templist: " + tempList[GameManager.Instance.parte - 1]);
+
+        if (GameManager.Instance.cCards > tempList[GameManager.Instance.parte - 1])
+        {
             GameManager.Instance.setLevelAndPart();
-            Debug.Log("Nivel - Instance parte: " + GameManager.Instance.parte);
-            Debug.Log("Boolean " + GameObject.Find("User_card(Clone)"));
+            GenerarSegunParte_Nivel(GameManager.Instance.parte, GameManager.Instance.nivel);
         }
-        
-        Debug.Log("Boolea antes del if " + GameObject.Find("User_card(Clone)"));
-        if (!GameObject.Find("User_card(Clone)"))
+        else if (!GameObject.Find("User_card(Clone)"))
         {
             Generar_card();
-            Debug.Log("Mi problema: " + GameManager.Instance.parte);
-            if (GameManager.Instance.parte == 1)
-            {
-                switch (GameManager.Instance.nivel)
-                {
-                    case 1:
-                        //Debug.Log("Card1_1");
-                        break;
-                    case 2:
-                        Card2_1();
-                        break;
-                    case 3:
-                        Card3_1();
-                        break;
-                }
-            }
-            else if (GameManager.Instance.parte == 2)
-            {
-                Debug.Log("PARTE 2!!!!!");
-                switch (GameManager.Instance.nivel)
-                {
-                    case 1:
-                        Card1_2();
-                        break;
-                    case 2:
-                        Card2_2();
-                        break;
-                    case 3:
-                        Card3_2();
-                        break;
-                }
-            }
-            else if (GameManager.Instance.parte == 3)
-            {
-                switch (GameManager.Instance.nivel)
-                {
-                    case 1:
-                        Card1_3();
-                        break;
-                    case 2:
-                        Debug.Log("Card2_3()");
-                        break;
-                    case 3:
-                        Debug.Log("Card3_3()");
-                        break;
-                }
-            }
-            busquedas.Clear(); 
-            //Mandar card a GameManager para subir o restar puntaje
-            //Debug.Log("usercard: " + user_card);
+            GenerarSegunParte_Nivel(GameManager.Instance.parte, GameManager.Instance.nivel);
+            busquedas.Clear();
             GameManager.Instance.RevisarCard(user_card);
+        }
+    }
+
+    void GenerarSegunParte_Nivel(int parte, int nivel)
+    {
+        if (parte == 1)
+        {
+            switch (nivel)
+            {
+                case 1:
+                    //Debug.Log("Card1_1");
+                    break;
+                case 2:
+                    Card2_1();
+                    break;
+                case 3:
+                    Card3_1();
+                    break;
+            }
+        }
+        else if (parte == 2)
+        {
+            Debug.Log("PARTE 2!!!!!");
+            switch (nivel)
+            {
+                case 1:
+                    Card1_2();
+                    break;
+                case 2:
+                    Card2_2();
+                    break;
+                case 3:
+                    Card3_2();
+                    break;
+            }
+        }
+        else if (parte == 3)
+        {
+            switch (nivel)
+            {
+                case 1:
+                    Card1_3();
+                    break;
+                case 2:
+                    Debug.Log("Card2_3()");
+                    break;
+                case 3:
+                    Debug.Log("Card3_3()");
+                    break;
+            }
         }
     }
 
@@ -137,9 +134,9 @@ public class Generar_users : MonoBehaviour
         */
         //Utilizar la misma lista 0-3 Parejas, 4-6 buscando, 7-10 no buscando
         busquedas.AddRange(new string[10] { "Mejores chocolates para regalar", "Precios de flores", "Lugares para salir", "Regalos para aniversario",
-                                            "¿Como declararme?", "Tips para saber si le gusto a alguien", "Apps para citas", 
+                                            "¿Como declararme?", "Tips para saber si le gusto a alguien", "Apps para citas",
                                             "Celulares 2023", "Outfits verano", "Rutina de ejercicio"});
-        
+
         rand = Random.Range(0, 3);
         hijo_temp = user_card.transform.Find("Busquedas").transform.Find("Busquedas-items");
         switch (rand)
@@ -165,7 +162,7 @@ public class Generar_users : MonoBehaviour
     }
 
     void Card1_3()
-    { 
+    {
         //4 opciones || (Trabajando, estudiando), (Trabajando, no estudiando), (No trabajando, estudiando), (No trabajando, no estudiando)
         /*
             •	Estado – información del perfil
@@ -179,10 +176,10 @@ public class Generar_users : MonoBehaviour
         */
         //0-3 Trabajando, 4-6 estudiando, 7-9 Ambos, 10-12 Ninguno
         busquedas.AddRange(new string[13] { "Entrevistas recien graduados", "¿Como encontrar trabajo sin estudios?", "Tips para pedir aumento", "Snacks para oficina",
-                                            "Rutina de estudio", "Outfits para universidad", "Snacks para clases", 
+                                            "Rutina de estudio", "Outfits para universidad", "Snacks para clases",
                                             "Balance estudio y trabajo", "Sueldo minimo practicantes", "Rutina de trabajo y estudio",
                                             "Celulares 2023", "Outfits verano", "Rutina de ejercicio"});
-        
+
         rand = Random.Range(0, 3);
         hijo_temp = user_card.transform.Find("Busquedas").transform.Find("Busquedas-items");
         switch (rand)

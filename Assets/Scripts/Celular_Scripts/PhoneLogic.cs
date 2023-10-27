@@ -12,6 +12,10 @@ public class PhoneLogic : MonoBehaviour
     [SerializeField] private GameObject Icon_news;*/
     [SerializeField] private Transform nom_contacto;
 
+    [SerializeField] private GameObject Hilda;
+    [SerializeField] private GameObject Marcia;
+    [SerializeField] private GameObject Jaime;
+
     void Start()
     {
 
@@ -41,14 +45,23 @@ public class PhoneLogic : MonoBehaviour
             case "C_Hilda":
                 //Cambiar a hilda
                 nom_contacto.GetComponent<TextMeshPro>().text = "Hilda";
+                Hilda.SetActive(true);
+                Jaime.SetActive(false);
+                Marcia.SetActive(false);
                 break;
             case "C_Marcia":
                 //Cambiar a hilda
                 nom_contacto.GetComponent<TextMeshPro>().text = "Marcia";
+                Hilda.SetActive(false);
+                Jaime.SetActive(false);
+                Marcia.SetActive(true);
                 break;
             case "C_Jaime":
                 //Cambiar a hilda
                 nom_contacto.GetComponent<TextMeshPro>().text = "Jaime";
+                Hilda.SetActive(false);
+                Jaime.SetActive(true);
+                Marcia.SetActive(false);
                 break;
             default:
                 Debug.Log("Mal contacto?");

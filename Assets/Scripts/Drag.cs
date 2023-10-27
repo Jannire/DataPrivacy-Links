@@ -72,7 +72,49 @@ public class Drag : MonoBehaviour
         }
         else if(!isBig)
         {
-            //Debug.Log("Culpable: " + other.transform.name);
+            switch (other.transform.name)
+            {
+                case "Grupo1":
+                    GetComponent<SpriteRenderer>().color = Color.cyan;
+                    break;
+                case "Grupo2":
+                    GetComponent<SpriteRenderer>().color = Color.blue;
+                    break;
+                case "Grupo3":
+                    GetComponent<SpriteRenderer>().color = Color.red;
+                    break;
+                case "Grupo4":
+                    GetComponent<SpriteRenderer>().color = Color.yellow;
+                    break;
+                default:
+                    Debug.Log("Culpable: " + other.transform.name);
+                    break;
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if(!isBig)
+        {
+            switch (other.transform.name)
+            {
+                case "Grupo1":
+                    GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                    break;
+                case "Grupo2":
+                    GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                    break;
+                case "Grupo3":
+                    GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                    break;
+                case "Grupo4":
+                    GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                    break;
+                default:
+                    Debug.Log("Culpable: " + other.transform.name);
+                    break;
+            }
         }
     }
 }
