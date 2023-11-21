@@ -25,4 +25,9 @@ public class PuntosSpawn : MonoBehaviour
         conexion.SetActive(!conexion.activeSelf);
 
     }
+
+    void InfoUser()
+    {
+        Debug.Log("Aqui info");
+    }
 }

@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public int pBien = 0, pMal = 0, balance = 0;
     public int nivel = 0;
     private GameObject temp;
+    public bool adquirir = true;
+    public Transform bal;
 
     public static GameManager Instance { get; private set; }
 
@@ -50,6 +52,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Algo paso mal.... niveles");
                 break;
         }
+        bal.GetComponent<TextMeshProUGUI>().text = "Balance: " + balance;
     }
 
     public void changePuntaje(bool[] validar, bool[] real)
@@ -57,13 +60,13 @@ public class GameManager : MonoBehaviour
         bool correcto = true;
         for (int i = 0; i < 5; i++)
         {
-            if(validar[i] != real[i])
+            if (validar[i] != real[i])
             {
                 correcto = false;
                 break;
             }
         }
-        if(correcto)
+        if (correcto)
         {
             pBien++;
             balance += 50;
@@ -73,10 +76,12 @@ public class GameManager : MonoBehaviour
             pMal++;
             balance -= 70;
         }
-        if(balance <= 0)
+        if (balance <= 0)
         {
             Debug.Log("Fin del juego");
         }
+        bal.GetComponent<TextMeshProUGUI>().text = "Balance: " + balance;
+
     }
 
     public void RevisarCard(GameObject GO)
@@ -114,5 +119,21 @@ public class GameManager : MonoBehaviour
     void RevisarNivel3()
     {
 
+    }
+
+    public void adquirir_crawlers(string nam)
+    {
+        if (nam == "Crawler")
+        {
+            Debug.Log("Solo crawlers");
+            adquirir = false;
+        }
+        else if (nam == "Wilson")
+        {
+            balance -= 250;
+            adquirir = true;
+            Debug.Log("Comprar BDs");
+        }
+        bal.GetComponent<TextMeshProUGUI>().text = "Balance: " + balance;
     }
 }
