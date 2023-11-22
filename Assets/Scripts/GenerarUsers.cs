@@ -40,8 +40,9 @@ public class GenerarUsers : MonoBehaviour
         if (currentUser == cantUsers)
         {
             Debug.Log("Finalizar nivel");
+            GameManager.Instance.SetNivel();
         }
-        if (!isUser)
+        else if (!isUser)
         {
             spawnUser(dificultad[currentUser]);
         }
@@ -60,7 +61,7 @@ public class GenerarUsers : MonoBehaviour
 
     void spawnUser(int dif)
     {
-        Debug.Log("New user generated");
+        //Debug.Log("New user generated");
         currentUser++;
         userTemp = Instantiate(user, transform.position, Quaternion.identity);
         setNombres(currentUser, userTemp);

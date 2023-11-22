@@ -2,25 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public int pBien = 0, pMal = 0, balance = 0;
     public int nivel = 0;
-    private GameObject temp;
+    public GameObject temp;
     public bool adquirir = true;
     public Transform bal;
+    public int sceneNum;
 
     public static GameManager Instance { get; private set; }
 
     private void Awake()
     {
         Instance = this;
+        DontDestroyOnLoad(this);
     }
 
     void Start()
     {
         SetNivel();
+        bal = null;
+        temp = GameObject.Find("Balance-Text");
+        bal = temp.transform;
+        sceneNum = 0;
+    }
+
+    void Update()
+    {
+        temp = GameObject.Find("Balance-Text");
+        bal = temp.transform;
+        bal.GetComponent<TextMeshProUGUI>().text = "Balance: " + balance;
+    }
+
+    void NextScene()
+    {
+        sceneNum++;
+        SceneManager.LoadScene(sceneNum);
+        temp = GameObject.Find("Balance-Text");
+        bal = temp.transform;
+        
     }
 
     public void setLevelAndPart()
@@ -30,7 +53,7 @@ public class GameManager : MonoBehaviour
     }
 
     //Set nivel y parte son más que nada para cinematicas
-    void SetNivel()
+    public void SetNivel()
     {
         nivel++;
         switch (nivel)
@@ -43,10 +66,12 @@ public class GameManager : MonoBehaviour
             case 2:
                 Debug.Log("Nivel 2");
                 balance += 100;
+                NextScene();
                 break;
             case 3:
                 Debug.Log("Nivel 3");
                 balance += 100;
+                NextScene();
                 break;
             default:
                 Debug.Log("Algo paso mal.... niveles");
@@ -81,43 +106,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("Fin del juego");
         }
         bal.GetComponent<TextMeshProUGUI>().text = "Balance: " + balance;
-
-    }
-
-    public void RevisarCard(GameObject GO)
-    {
-        //Recibe card y depnde de la parte y nivel, revisa cosa distintas
-        //cardRev = GO;
-        switch (nivel)
-        {
-            case 1:
-                //Debug.Log("Nivel 1 - RevCard");
-                RevisarNivel1();
-                break;
-            case 2:
-                //Debug.Log("Nivel 2");
-                RevisarNivel2();
-                break;
-            default:
-                Debug.Log("Algo paso mal.... - RevCard: nivel ->" + nivel);
-                break;
-        }
-        //datosRev.Clear();
-        //buscar.Clear();
-    }
-
-    void RevisarNivel1()
-    {
-
-    }
-
-    void RevisarNivel2()
-    {
-
-    }
-
-    void RevisarNivel3()
-    {
 
     }
 

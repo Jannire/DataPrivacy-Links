@@ -14,6 +14,12 @@ public class CerrarAbrir : MonoBehaviour
     public GameObject music;
     #endregion
 
+    #region cards
+    private GameObject CarlosCard;
+    private GameObject JairoCard;
+    private GameObject MirasolCard;
+    private GameObject BethCard;
+    #endregion
 
     void Start()
     {
@@ -28,6 +34,7 @@ public class CerrarAbrir : MonoBehaviour
             hospital.SetActive(false);
             music.SetActive(false);
         }
+        Debug.Log("This card is: " + this.name);
     }
 
     void Update()

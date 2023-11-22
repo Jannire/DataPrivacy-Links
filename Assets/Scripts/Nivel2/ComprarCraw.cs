@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ComprarCraw : MonoBehaviour
@@ -8,7 +9,10 @@ public class ComprarCraw : MonoBehaviour
     public GameObject victimas;
     void Start()
     {
-        
+        GameManager.Instance.temp = GameObject.Find("Balance-Text");
+        GameManager.Instance.bal = GameManager.Instance.temp.transform;
+        Debug.Log("bal: " + GameManager.Instance.temp.transform);
+        GameManager.Instance.bal.GetComponent<TextMeshProUGUI>().text = "Balance: " + GameManager.Instance.balance;
     }
 
     // Update is called once per frame
