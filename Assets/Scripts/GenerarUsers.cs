@@ -209,5 +209,11 @@ public class GenerarUsers : MonoBehaviour
         Destroy(userTemp);
         GameManager.Instance.changePuntaje(validar, p);
         ResetearConexiones();
+
+        if(currentUser == 4)
+        {
+            SystemDialogue.Instance.unHideUI();
+            SystemDialogue.Instance.NextDialogue();
+        }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int pBien = 0, pMal = 0, balance = 0;
+    public int balance = 0;
     public int nivel = 0;
     public GameObject temp;
     public bool adquirir = true;
@@ -46,12 +46,6 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void setLevelAndPart()
-    {
-        //Debug.Log("Bien: " + pBien + "\nMal: " + pMal);
-        SetNivel();
-    }
-
     //Set nivel y parte son más que nada para cinematicas
     public void SetNivel()
     {
@@ -60,6 +54,8 @@ public class GameManager : MonoBehaviour
         {
             case 1:
                 Debug.Log("Nivel 1");
+                SystemDialogue.Instance.unHideUI();
+                SystemDialogue.Instance.NextDialogue();
                 //Generar users DB
                 balance += 200;
                 break;
@@ -93,12 +89,10 @@ public class GameManager : MonoBehaviour
         }
         if (correcto)
         {
-            pBien++;
             balance += 50;
         }
         else
         {
-            pMal++;
             balance -= 70;
         }
         if (balance <= 0)

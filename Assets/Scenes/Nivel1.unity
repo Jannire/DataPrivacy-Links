@@ -911,6 +911,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &869397784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6606561873823774217, guid: 86c8a70b8fa836541ba79a9611c68062, type: 3}
+  m_PrefabInstance: {fileID: 4658712203228464068}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &890209866 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6152350462659647127, guid: 7632cf0cec6934e4e87a05cb10b4dbcd, type: 3}
@@ -1510,6 +1515,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1555634194 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5237982290426787734, guid: 86c8a70b8fa836541ba79a9611c68062, type: 3}
+  m_PrefabInstance: {fileID: 4658712203228464068}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1639649432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1597,6 +1607,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 7632cf0cec6934e4e87a05cb10b4dbcd, type: 3}
+--- !u!1 &1641930172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3229581808371616017, guid: 86c8a70b8fa836541ba79a9611c68062, type: 3}
+  m_PrefabInstance: {fileID: 4658712203228464068}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1797391940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1873,6 +1888,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2035711650 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3374335082550181206, guid: fb2d30465bddb2b49a20f0946497a722, type: 3}
+  m_PrefabInstance: {fileID: 2063412025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2035711653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035711650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a4e2e56de8c6747a640c946826cf8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dia:
+  - "Buenos d\xEDas, hoy tenemos unas tareas simples para iniciar"
+  - Logre obtener estas bases de datos de nuestros brokers usuales
+  - "Quieren conocer m\xE1s sobre estas personas, asi que ya sabes que hacer"
+  - "Para poder conocer m\xE1s sobre una persona debemos encontrarla en una de estas
+    bases de datos"
+  - Haz clic en el triangulo de la base de datos donde la encuentres
+  - No olvides ninguna aparicion, ni pongas de mas. Lo reducire de tu paga
+  - Las personas tienen distintos comportamiento en las redes
+  - "Ciertas personas cuidan m\xE1s su huella digital, otros no tanto"
+  stops: 0500000007000000
+  dialogue_text: {fileID: 869397784}
+  UI: {fileID: 1555634194}
+  fondo: {fileID: 1641930172}
+  it: 0
+  part: 0
 --- !u!1001 &2063412025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1948,7 +1996,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3374335082550181206, guid: fb2d30465bddb2b49a20f0946497a722, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2035711653}
   m_SourcePrefab: {fileID: 100100000, guid: fb2d30465bddb2b49a20f0946497a722, type: 3}
 --- !u!4 &2101681801 stripped
 Transform:
@@ -2116,6 +2167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas-Superior
       objectReference: {fileID: 0}
+    - target: {fileID: 3865476903061730992, guid: 86c8a70b8fa836541ba79a9611c68062, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2035711653}
     - target: {fileID: 9171403889027746033, guid: 86c8a70b8fa836541ba79a9611c68062, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2197,8 +2252,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 4973765381306638170, guid: 86c8a70b8fa836541ba79a9611c68062, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86c8a70b8fa836541ba79a9611c68062, type: 3}
