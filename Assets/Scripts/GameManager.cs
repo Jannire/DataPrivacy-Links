@@ -124,4 +124,19 @@ public class GameManager : MonoBehaviour
         }
         bal.GetComponent<TextMeshProUGUI>().text = "Balance: " + balance;
     }
+
+    public void RevisarNivel2(string nombre)
+    {
+        nombre = nombre.Substring(2);
+        Debug.Log("Elegido: " + nombre);
+        if(nombre == "jairo" || nombre == "marisol")
+        {
+            Debug.Log("Fin de la demo");
+        }
+        else
+        {
+            balance -= 100;
+        }
+        bal.GetComponent<TextMeshProUGUI>().text = "Balance: " + balance;
+    }
 }

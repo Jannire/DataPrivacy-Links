@@ -38,16 +38,17 @@ public class CerrarAbrir : MonoBehaviour
         //Debug.Log("This card is: " + this.name);
         //string nomCard = this.name.Substring(5);
         #region cards
-        JairoCard = GameObject.Find("Card-Jairo");
-        MirasolCard = GameObject.Find("Card-Mirasol");
-        BethCard = GameObject.Find("Card-Beth");
-        CarlosCard = GameObject.Find("Card-Carlos");
+        JairoCard = GameObject.Find("Victima-Jairo");
+        MirasolCard = GameObject.Find("Victima-Mirasol");
+        BethCard = GameObject.Find("Victima-Beth");
+        CarlosCard = GameObject.Find("Victima-Carlos");
         #endregion
         //Debug.Log($"All Cards: {JairoCard.name}, {BethCard.name}, {MirasolCard.name}, {CarlosCard.name}");
         posIni = this.transform.position;
         posIniChild = this.transform.GetChild(0).transform.position;
         offsetIni = col.offset;
         sizeIni = col.size;
+        //col.transform.position = new Vector2(posIniChild.x,posIniChild.y) ;
         //Debug.Log("Pos Child: " + posIniChild);
         if (!GameManager.Instance.adquirir)
         {
@@ -73,8 +74,8 @@ public class CerrarAbrir : MonoBehaviour
         card.SetActive(false);
         full.SetActive(true);
         CerrarTodo();
-        col.size = new Vector2(1.863308f, 1.853351f);
-        col.offset = new Vector2(10.84986f, 4.442803f);
+        col.size = new Vector2(1.863308f, 1.853351f); // Bien
+        col.offset = new Vector2(11.87f, 4.337056f);
         col.transform.position = new Vector3 (0f, 0f, 0f);
         //col.transform.position = new Vector3(1.400924f, -3.3558f, 0.02803782f);
         this.transform.position = posIni;
@@ -103,6 +104,8 @@ public class CerrarAbrir : MonoBehaviour
         BethCard.SetActive(false);
         MirasolCard.SetActive(false);
         CarlosCard.SetActive(false);
+        //col.enabled = true;
+        this.gameObject.SetActive(true);
     }
 
     void AbrirTodo()
