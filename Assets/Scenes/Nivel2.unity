@@ -184,6 +184,10 @@ PrefabInstance:
       value: Mirasol Caceres
       objectReference: {fileID: 0}
     - target: {fileID: 1030898965795361092, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      propertyPath: m_Name
+      value: Card-Mirasol
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030898965795361092, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -221,10 +225,21 @@ PrefabInstance:
       propertyPath: nameO
       value: Mirasol
       objectReference: {fileID: 0}
+    - target: {fileID: 7866287988264409588, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 7866287988264409588, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.03
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9067059223960021060, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
 --- !u!1 &116890547
 GameObject:
@@ -1085,6 +1100,10 @@ PrefabInstance:
       value: Beth Liriam
       objectReference: {fileID: 0}
     - target: {fileID: 1030898965795361092, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      propertyPath: m_Name
+      value: Card-Beth
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030898965795361092, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1126,10 +1145,21 @@ PrefabInstance:
       propertyPath: nameO
       value: Beth
       objectReference: {fileID: 0}
+    - target: {fileID: 7866287988264409588, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 7866287988264409588, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.55
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9067059223960021060, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
 --- !u!1 &825717664
 GameObject:
@@ -1414,6 +1444,10 @@ PrefabInstance:
       value: Jairo Gomez
       objectReference: {fileID: 0}
     - target: {fileID: 1030898965795361092, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      propertyPath: m_Name
+      value: Card-Jairo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030898965795361092, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1451,10 +1485,21 @@ PrefabInstance:
       propertyPath: nameO
       value: Jairo
       objectReference: {fileID: 0}
+    - target: {fileID: 7866287988264409588, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 7866287988264409588, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9067059223960021060, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
 --- !u!1 &1908386125
 GameObject:
@@ -1744,6 +1789,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 309674438613522558, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030898965795361092, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      propertyPath: m_Name
+      value: Card-Carlos
+      objectReference: {fileID: 0}
     - target: {fileID: 1030898965795361092, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1756,11 +1809,95 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8191226856591213632, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8241643111349990, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4338567405134662684}
+    - targetCorrespondingSourceObject: {fileID: 9067059223960021060, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 1200903618113401287, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4489179419867022493, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4925125383932108355, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7691933684265528089, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8284759534255787916, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6638256894321539798, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7949267209073987100, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4663420202167204678, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5391247980485772082, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5252428642491061632, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4399550269489406671, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+--- !u!1 &4338567405134662679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6052714399534673804, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+  m_PrefabInstance: {fileID: 4338567405134662678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4338567405134662680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3960815878508617065, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+  m_PrefabInstance: {fileID: 4338567405134662678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4338567405134662681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6420508533756490764, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+  m_PrefabInstance: {fileID: 4338567405134662678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4338567405134662682 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1030898965795361092, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+  m_PrefabInstance: {fileID: 4338567405134662678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4338567405134662683 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8241643111349990, guid: 412e471ce7a6c784da61f75e23102b56, type: 3}
+  m_PrefabInstance: {fileID: 4338567405134662678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4338567405134662684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4338567405134662683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3624786749ea4774f8c8d3f1666882dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 4338567405134662682}
+  full: {fileID: 4338567405134662681}
+  hospital: {fileID: 4338567405134662679}
+  music: {fileID: 4338567405134662680}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
