@@ -33,7 +33,7 @@ public class LlenarBDs : MonoBehaviour
     {
         int id;
         int ord = UnityEngine.Random.Range(0, 5);
-        string[] bds = { "starli", "portal23", "Waesly", "Tom_90", "Amanda123", "CelesteFar", "Psush", "Hgib", "124Film", "Josh78", "Mads_98", "Op334" };
+        string[] bds = { "NoraNebula", "ChloeCipher29", "RyanRover47", "AlexAdventure88", "EmmaExplorer45", "starli", "portal23", "Waesly", "Tom_90", "Amanda123", "CelesteFar", "Psush", "Hgib", "124Film", "Josh78", "Mads_98", "Op334", "AAndrea15", };
         obj.GetComponent<TextMeshPro>().text = "ID" + "      " + "Username";
         for (int i = 0; i < 5; i++)
         {

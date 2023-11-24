@@ -26,5 +26,7 @@ public class ComprarCraw : MonoBehaviour
         GameManager.Instance.adquirir_crawlers(this.name);
         victimas.SetActive(true);
         menuComprar.SetActive(false);
+        SystemDialogue2.Instance.unHideUI();
+        SystemDialogue2.Instance.NextDialogue();
     }
 }

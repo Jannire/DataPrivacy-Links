@@ -9,19 +9,16 @@ public class Ready : MonoBehaviour
     [SerializeField] private GameObject checks;
     private Collider2D col;
 
-    private GameObject carlos;
-    private GameObject jairo;
-    private GameObject mirasol;
-    private GameObject beth;
+    public GameObject carlos;
+    public GameObject jairo;
+    public GameObject mirasol;
+    public GameObject beth;
 
     public bool isReady = false;
 
-    void Start()
+    void Awake()
     {
-        carlos = GameObject.Find("Victima-Carlos");
-        jairo = GameObject.Find("Victima-Jairo");
-        mirasol = GameObject.Find("Victima-Mirasol");
-        beth = GameObject.Find("Victima-Beth");
+
     }
 
     // Update is called once per frame
@@ -55,6 +52,7 @@ public class Ready : MonoBehaviour
             col = a[i].GetComponent<BoxCollider2D>();
             col.enabled = false;
         }
+        SystemDialogue2.Instance.Esperar();
     }
 
     void GetUnReady()

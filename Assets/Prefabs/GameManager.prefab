@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8466120984815986031}
   - component: {fileID: 3164457275732721926}
+  - component: {fileID: 4681349757417094311}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,9 +45,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54aa6ba64defa1a4a87cdf9dbe31b451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puntaje: 0
+  balance: 0
   nivel: 0
-  parte: 0
-  cardRev: {fileID: 0}
   temp: {fileID: 0}
-  grupoRev: 
+  adquirir: 1
+  bal: {fileID: 0}
+  sceneNum: 0
+--- !u!114 &4681349757417094311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3374335082550181206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a4e2e56de8c6747a640c946826cf8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dia:
+  - "Buenos d\xEDas, hoy tenemos unas tareas simples para iniciar"
+  - Logre obtener estas bases de datos de nuestros brokers usuales
+  - "Quieren conocer m\xE1s sobre estas personas, asi que ya sabes que hacer"
+  - "Para poder conocer m\xE1s sobre una persona debemos encontrarla en una de estas
+    bases de datos"
+  - Haz clic en el triangulo de la base de datos donde la encuentres
+  - No olvides ninguna aparicion, ni pongas de mas. Lo reducire de tu paga
+  - Las personas tienen distintos comportamiento en las redes
+  - "Ciertas personas cuidan m\xE1s su huella digital, otros no tanto"
+  stops: 0500000007000000
+  dialogue_text: {fileID: 0}
+  UI: {fileID: 0}
+  fondo: {fileID: 0}
+  it: 0
+  part: 0

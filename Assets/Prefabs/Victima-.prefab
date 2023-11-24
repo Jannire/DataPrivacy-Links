@@ -1039,7 +1039,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Puesto: \n \n"
+  m_text: 'Puesto: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 91dd61ba423afae429345df1a29a792b, type: 2}
   m_sharedMaterial: {fileID: -6431457534761398215, guid: 91dd61ba423afae429345df1a29a792b, type: 2}

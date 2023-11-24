@@ -37,12 +37,7 @@ public class GenerarUsers : MonoBehaviour
 
     void Update()
     {
-        if (currentUser == cantUsers)
-        {
-            Debug.Log("Finalizar nivel");
-            GameManager.Instance.SetNivel();
-        }
-        else if (!isUser)
+        if (!isUser && currentUser != cantUsers)
         {
             spawnUser(dificultad[currentUser]);
         }
@@ -55,14 +50,14 @@ public class GenerarUsers : MonoBehaviour
             dificultad.Add(UnityEngine.Random.Range(1, 4));
         }
 
-        Debug.Log("Dificultades: " + String.Join(" - ", dificultad));
+        //Debug.Log("Dificultades: " + String.Join(" - ", dificultad));
         //Debug.Log($"cantUsers: {cantUsers} - currentUser: {currentUser} - isUser:{isUser}");
     }
 
     void spawnUser(int dif)
     {
         //Debug.Log("New user generated");
-        currentUser++;
+
         userTemp = Instantiate(user, transform.position, Quaternion.identity);
         setNombres(currentUser, userTemp);
         isUser = true;
@@ -148,11 +143,11 @@ public class GenerarUsers : MonoBehaviour
     {
         int id;
         int ord = UnityEngine.Random.Range(0, 5);
-        string[] bds = { "starli", "portal23", "Waesly", "Tom_90", "Amanda123", "CelesteFar", "Psush", "Hgib", "124Film", "Josh78", "Mads_98", "Op334" };
+        string[] bds = { "starli", "portal23", "Waesly", "Tom_90", "Amanda123", "CelesteFar", "Psush", "Hgib", "124Film", "Josh78", "Mads_98", "Op334", "LilyLoomer23", "MaxMingleOfficial","EmmaExplorer45","AlexAdventure88","SarahSpecter19", "DylanDynamo22", "GraceGazelle34", "RyanRover47","OliviaOracle55", "EthanEcho91", "AvaAstral78", "LucasLunar66","ZoeZenith23","MasonMystic44","ChloeCipher29", "NoahNomad13", "MiaMingle21","JacksonJester37","SophiaSprite50","LoganLoomer63","HarperHarmony", "LeoLabyrinth","StellaStarlight","ZachZodiac" };
         obj.GetComponent<TextMeshPro>().text = "ID" + "      " + "Username";
         for (int i = 0; i < 5; i++)
         {
-            id = UnityEngine.Random.Range(0, 99);
+            id = UnityEngine.Random.Range(10, 99);
             if (i == ord)
             {
                 obj.GetComponent<TextMeshPro>().text = obj.GetComponent<TextMeshPro>().text + "\n" + id + "      " + nombres[currentUser];
@@ -168,10 +163,10 @@ public class GenerarUsers : MonoBehaviour
     {
         int id;
         obj.GetComponent<TextMeshPro>().text = "ID" + "      " + "Username";
-        string[] bds = { "starli", "portal23", "Waesly", "Tom_90", "Amanda123", "CelesteFar", "Psush", "Hgib", "124Film", "Josh78", "Mads_98", "Op334" };
+        string[] bds = { "starli", "portal23", "Waesly", "Tom_90", "Amanda123", "CelesteFar", "Psush", "Hgib", "124Film", "Josh78", "Mads_98", "Op334", "LilyLoomer23", "MaxMingleOfficial","EmmaExplorer45","AlexAdventure88","SarahSpecter19", "DylanDynamo22", "GraceGazelle34", "RyanRover47","OliviaOracle55", "EthanEcho91", "AvaAstral78", "LucasLunar66","ZoeZenith23","MasonMystic44","ChloeCipher29", "NoahNomad13", "MiaMingle21","JacksonJester37","SophiaSprite50","LoganLoomer63","HarperHarmony", "LeoLabyrinth","StellaStarlight","ZachZodiac" };
         for (int i = 0; i < 5; i++)
         {
-            id = UnityEngine.Random.Range(0, 99);
+            id = UnityEngine.Random.Range(10, 99);
             obj.GetComponent<TextMeshPro>().text = obj.GetComponent<TextMeshPro>().text + "\n" + id + "      " + bds[UnityEngine.Random.Range(0, bds.Length)];
         }
     }
@@ -179,7 +174,7 @@ public class GenerarUsers : MonoBehaviour
     public bool[] RevisarConexiones()
     {
         bool[] conPuntaje = { false, false, false, false, false };
-        string[] nomsConexiones = { "Conexion-Bank", "Conexion-Links", "Conexion-Game", "Conexion-Fitness", "Conexion-Tienda"};
+        string[] nomsConexiones = { "Conexion-Bank", "Conexion-Links", "Conexion-Game", "Conexion-Fitness", "Conexion-Tienda" };
         for (int i = 0; i < nomsConexiones.Length; i++)
         {
             if (GameObject.Find(nomsConexiones[i]) != false)
@@ -192,7 +187,7 @@ public class GenerarUsers : MonoBehaviour
 
     public void ResetearConexiones()
     {
-        string[] nomsConexiones = { "Conexion-Bank", "Conexion-Links", "Conexion-Game", "Conexion-Fitness", "Conexion-Tienda"};
+        string[] nomsConexiones = { "Conexion-Bank", "Conexion-Links", "Conexion-Game", "Conexion-Fitness", "Conexion-Tienda" };
         for (int i = 0; i < nomsConexiones.Length; i++)
         {
             if (GameObject.Find(nomsConexiones[i]) != false)
@@ -209,11 +204,22 @@ public class GenerarUsers : MonoBehaviour
         Destroy(userTemp);
         GameManager.Instance.changePuntaje(validar, p);
         ResetearConexiones();
-
-        if(currentUser == 4)
+        currentUser++;
+        if (currentUser == 3)
         {
             SystemDialogue.Instance.unHideUI();
             SystemDialogue.Instance.NextDialogue();
+        }
+        else if (currentUser == 7)
+        {
+            SystemDialogue.Instance.unHideUI();
+            SystemDialogue.Instance.NextDialogue();
+        }
+        else if (currentUser == cantUsers)
+        {
+            Debug.Log("Finalizar nivel");
+            SystemDialogue.Instance.unHideUI();
+            GameManager.Instance.SetNivel();
         }
     }
 }

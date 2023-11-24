@@ -31,7 +31,6 @@ public class CerrarAbrir : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Nivel 2");
         full.SetActive(false);
         card.SetActive(true);
         //Debug.Log("Full: " + full.activeSelf + " Card: " + card.activeSelf);

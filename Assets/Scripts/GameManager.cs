@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneNum);
         temp = GameObject.Find("Balance-Text");
         bal = temp.transform;
-        
     }
 
     //Set nivel y parte son más que nada para cinematicas
@@ -61,8 +60,11 @@ public class GameManager : MonoBehaviour
                 break;
             case 2:
                 Debug.Log("Nivel 2");
-                balance += 100;
+                SystemDialogue.Instance.HideUI();
                 NextScene();
+                /*SystemDialogue2.Instance.unHideUI();
+                SystemDialogue2.Instance.NextDialogue();*/
+                balance += 100;
                 break;
             case 3:
                 Debug.Log("Nivel 3");
@@ -97,6 +99,14 @@ public class GameManager : MonoBehaviour
         }
         if (balance <= 0)
         {
+            if(nivel == 1)
+            {
+                SystemDialogue.Instance.death();    
+            }
+            if(nivel == 2)
+            {
+                SystemDialogue2.Instance.death();    
+            }
             Debug.Log("Fin del juego");
         }
         bal.GetComponent<TextMeshProUGUI>().text = "Balance: " + balance;
@@ -123,12 +133,14 @@ public class GameManager : MonoBehaviour
     {
         nombre = nombre.Substring(2);
         Debug.Log("Elegido: " + nombre);
-        if(nombre == "jairo" || nombre == "marisol")
+        if(nombre == "jairo" || nombre == "mirason") //Cambiar el nombre mal escrito
         {
+            SystemDialogue2.Instance.FinDemo();
             Debug.Log("Fin de la demo");
         }
         else
         {
+            SystemDialogue2.Instance.MalaEleccion();
             balance -= 100;
         }
         bal.GetComponent<TextMeshProUGUI>().text = "Balance: " + balance;
